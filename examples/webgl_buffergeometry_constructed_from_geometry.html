@@ -104,10 +104,10 @@
 				var heartGeometry = createGeometry();
 				var geometry = new THREE.Geometry();
 
-				for ( var i = 1, l = count; i <= l; i ++ ) {
+				for ( var i = 0; i < count; i ++ ) {
 
-					var phi = Math.acos( - 1 + ( 2 * i ) / l );
-					var theta = Math.sqrt( l * Math.PI ) * phi;
+					var phi = Math.acos( - 1 + ( 2 * i ) / count );
+					var theta = Math.sqrt( count * Math.PI ) * phi;
 
 					vector.setFromSphericalCoords( radius, phi, theta );
 
@@ -115,7 +115,7 @@
 					geometry.lookAt( vector );
 					geometry.translate( vector.x, vector.y, vector.z );
 
-					color.setHSL( ( i / l ), 1.0, 0.7 );
+					color.setHSL( ( i / count ), 1.0, 0.7 );
 
 					geometry.faces.forEach( function ( face ) {
 
